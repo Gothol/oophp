@@ -1,27 +1,20 @@
 ---
-title: "Min fina titel"
+title: "Om Joel Sandström"
 ---
 Min me-sida i kursen oophp
 =========================
 
-Detta innehåll är skrivet i markdown och du hittar innehållet i filen `content/index.md`.
+En presentation av mig Joel Sandström:
+---------------------------------------
 
-[FIGURE src="image/me.jpg?w=400&a=4,27,11,0&cf&sharpen" class="right" caption="Bild på mig, ätandes glass och hållandes ett kort på någon jultillställning."]
+[FIGURE src="image/joel.jpg?h=400" class="index-main right" caption="Så här kan jag se ut när jag lajvar"]
 
-Detta är min me-sida i kursen. Denna sidan innehåller en presentation av mig själv. Underhåll denna sidan under hela kursen och uppdatera den efter hand och behov.
+Jag är bosatt i Kista, Stockholm, en på det hela taget trevlig stadsdel, största fördelen är dock att det är nära till jobbet. Jag jobbar sedan ett par år tillbaka som projektledare på Tele2. Vanligtvis består projekten av implementation av telefonväxlar åt företag eller kommuner.
 
-Så, en presentation en bra början. Skriv några ord om dig själv. Jag börjar.
+På fritiden tycker jag om att ägna mig åt levande rollspel (lajv), det kan beskrivas som att spela teater utan ett manus. Man spelar en roll utifrån vissa givna förutsättningar utan att veta vad som kommer att hända härnäst.
 
-Mitt namn är Mikael Roos. Född och uppvuxen i Bankeryd, Småland, strax utanför Jönköping, i ett villaområde som byggdes upp samtidigt som vi flyttade in där. Jag gillade landhockey och har spelat bandy och hockey samt gått bowlinggymnasiet i Nässjö. Jag har varit städare, diskare, kallskänka, servitör och kock. På ett bananskal landade jag i Ronneby när jag började högskolan 1990 där och nu är jag kvar med fru, barn och så vidare.
+En stor del av fritiden går också till att träna på gym samt numer även till att plugga webprogrammering. Jag har i början av 2000-talet läst digital mediedesign, där även en del webprogrammering ingick men det är verkligen kunskaper som behöver fräschas upp.
 
-Programmering har alltid intresserat mig sedan 13-årsåldern och min första dator var en Spectravideo 328 med bandspelare.
+Utöver digital mediedesign, har jag tidigare läst statistik, filmvetenskap och filosofi, samt enstaka kurser i statsvetenskap, litteraturvetenskap och matematik. Mina studier har haft mer fokus på att vara roliga än att vara nyttiga och det är nog först nu vid 40-års ålder som jag tror mig börja hitta vad jag faktiskt vill göra när jag blir stor, vilket är någon form av programmering eller åtminstone projektledning med förståelse för den programmering som görs.
 
-Om jag skall nämna någon hobby, förutom webbprogrammering, så får det bli att bära sten på sommarstugetomten, och det finns sten så det räcker och blir över.
-
-Till och från får jag för mig att börja på lite hobbies, ett år satsade jag på pokerspel, ett annat år var det geocaching, sedan turfing och nu på sistone verkar släktforskning lite spännande. Annars kan jag alltid koda på något av mina opensource-projekt, det finns och blir över.
-
-Vill du läsa mer om vad jag jobbat med så kan du kika på min [Linkedin-profil](https://www.linkedin.com/in/pt90mr/).
-
-Vi syns och hörs i forum och chatt!
-
-/Mikael
+Jag har nog ända sedan jag började i skolan varit intresserad av problemlösning av olika slag. Först var det matematiken som stod för en stor portion av problemlösningen och jag slukade böcker med matematiska tankenötter. Sedan blev det lite mer programmering där jag funderade på hur saker kunde lösas (mest var det Turbo-pascal som användes på den tiden). För att på universitet bli mer fokus på humaniorans promblem i filosofins värld. därifrån tillbaka till matematiken i form av statistik och sedan arbeta med kombinationen av statistik och filosofi som blir den beslutsteori som ofta används inom projektlederiet. Och nu ett försök att komma tillbaka till att vara lite närmare tekniken och lösa tekniska problem själv.
