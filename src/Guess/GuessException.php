@@ -1,6 +1,5 @@
 <?php
 namespace Joel\Guess;
-
 /**
 * Exceprion-class for GuessException.
 */

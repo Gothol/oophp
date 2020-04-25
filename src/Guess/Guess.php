@@ -1,14 +1,15 @@
 <?php
-namespace Joel\Guess;
 
+namespace Joel\Guess;
 /**
 * Guess my number, a class supporting the game through GET, POST and SESSION.
 */
+
 class Guess
 {
     /**
-    * @var int $number   The current secret number.
-    * @var int $tries    Number of tries a guess has been made.
+    * @var integer $number   The current secret number.
+    * @var integer $tries    Number of tries a guess has been made.
     */
     private $number;
     private $tries;
@@ -17,9 +18,9 @@ class Guess
     * Constructor to initiate the object with current game settings,
     * if available. Randomize the current number if no value is sent in.
     *
-    * @param int $number The current secret number, default -1 to initiate
+    * @param integer $number The current secret number, default -1 to initiate
     *                    the number from start.
-    * @param int $tries  Number of tries a guess has been made,
+    * @param integer $tries  Number of tries a guess has been made,
     *                    default 6.
     */
     public function __construct(int $number = -1, int $tries = 7)
@@ -46,7 +47,7 @@ class Guess
     /**
     * Get number of tries left.
     *
-    * @return int as number of tries made.
+    * @return integer as number of tries made.
     */
 
     public function tries()
@@ -60,7 +61,7 @@ class Guess
     /**
     * Get the secret number.
     *
-    * @return int as the secret number.
+    * @return integer as the secret number.
     */
 
     public function number()
