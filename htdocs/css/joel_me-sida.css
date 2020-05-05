@@ -316,6 +316,25 @@ template {
 [hidden] {
   display: none;
 }
+
+.dice-sprite {
+    display: inline-block;
+    padding: 0;
+    margin: 0 4px 0 0;
+    width: 32px;
+    height: 32px;
+    background: url("../../htdocs/img/dice-faces.jpg") no-repeat;
+}
+.dice-sprite.dice-0 {
+    width: 0px;
+    height: 0px;
+}
+.dice-sprite.dice-1 { background-position: -160px 0; }
+.dice-sprite.dice-2 { background-position: -128px 0; }
+.dice-sprite.dice-3 { background-position: -96px 0; }
+.dice-sprite.dice-4 { background-position: -64px 0; }
+.dice-sprite.dice-5 { background-position: -32px 0; }
+.dice-sprite.dice-6 { background-position: 0 0; }
 /**
  * Font Awesome.
  */
@@ -6017,6 +6036,7 @@ a.rm-button.rm-clicked .rm-button-face-2 {
   flex-direction: row-reverse;
   justify-content: space-between;
 }
+
 body {
   background: linear-gradient(rgba(150, 209, 255, 0.4), rgba(221, 221, 255, 0.4)), url("../../htdocs/img/vattenfall2.jpg") no-repeat fixed right / 100%;
 }

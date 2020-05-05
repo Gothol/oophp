@@ -89,5 +89,10 @@ return [
             "url" => "guess/guess_start",
             "title" => "Game Guess the number",
         ],
+        [
+            "text" => "Dice-100",
+            "url" => "tarning100/tarning100_start",
+            "title" => "Game Dices frist to 100",
+        ],
     ],
 ];
