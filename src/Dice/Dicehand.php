@@ -53,6 +53,15 @@ class Dicehand
     }
 
     /**
+    * Set values for testpurposes
+    * @var array $value en array with values to simulate a rolled hand.
+    */
+    public function setValues($value)
+    {
+        $this->values = $value;
+    }
+
+    /**
     * @return int the sum of the dices in the hand.
     */
     public function sum()

@@ -18,7 +18,8 @@ class RoundComputer extends Round
     * Checks if the computer should roll another hand or end the turn, based on the score of this round.
     * @return void
     */
-    public function checkRes() {
+    public function checkRes()
+    {
         if ($this->getResult() > 15) {
             $action = "end_turn_computer";
             $submit = "End turn";

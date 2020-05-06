@@ -11,14 +11,12 @@ class Round
     * @var Dicehand $hand instance of the class Dicehand.
     * @var int $sum The total score for a player in this particular game.
     * @var int $res the result in this particular rund, combination of sum from rolled dicehands.
-    * @var string $headline Headline for the rendered page, user inteface.
     * @var array $formValue array consisting of arrays with strings for use in rendering forms in user interface.
     * @var string $message, to be used as a flash-message in user interface.
     */
     private $hand;
     private $sum;
     private $res;
-    private $headline;
     private $formValue;
     private $message;
 
@@ -27,18 +25,16 @@ class Round
     * @var int $dices the number om dices that a dicehand should consist of defaults to 2.
     * @var int $sum the total score from previous rounds default to 0.
     * @var int $res the total sum from previous rolls this round defaults to 0.
-    * @var string $headline the headline to show, defaults to "".
     * @var array $formValue the array of arguments for the userinterface-buttons, defaults to empty array.
     * @var string $message flash message defaults to "".
     */
-    public function __construct(int $dices = 2, int $sum = 0, int $res = 0, string $headline = "", array $formValue = [], string $message = "")
+    public function __construct(int $dices = 2, int $sum = 0, int $res = 0, array $formValue = [], string $message = "")
     {
         $this->hand = new Dicehand($dices);
         $this->sum = $sum;
         $this->res = $res;
-        $this->headline = $headline;
-        $this->formValue = [];
-        $this->message = "";
+        $this->formValue = $formValue;
+        $this->message = $message;
     }
 
     /**
@@ -59,6 +55,15 @@ class Round
     }
 
     /**
+    * Set values to use for testpurposes.
+    * @var array $value array of values to simulate a dice hand
+    */
+    public function setHandValues($value)
+    {
+        $this->hand->setValues($value);
+    }
+
+    /**
     * Checks if the dice hand includes a one or not. If it do set $res to 0 else adds the value of the dices to $res.
     * Sets formvalue to match if you can continue a round or need to quit (rolled a 1).
     * @var string $palyer tells if it's a player or a computer that plays the current round.
@@ -66,18 +71,15 @@ class Round
     */
     public function check(string $player)
     {
-        $check = True;
-        foreach ($this->hand->values() as $key => $value)
-        {
+        $check = true;
+        foreach ($this->hand->values() as $key => $value) {
             if ($value === 1) {
-                $check = False;
+                $check = false;
             }
         }
-        if ($check)
-        {
+        if ($check) {
             $this->res = $this->res + $this->hand->sum();
-            if ($player === "player")
-            {
+            if ($player === "player") {
                 $this->formValue = [
                     "1" => [
                         "action" => "play_continue",
@@ -165,18 +167,18 @@ class Round
     */
     public function checkSum($player)
     {
-        if(($this->sum + $this->res) >= 100) {
+        if (($this->sum + $this->res) >= 100) {
             if ($player === "player") {
-                $this->headline = "You win!";
+                $headline = "You win!";
                 $this->formValue = [];
             } else {
-                $this->headline = "You lose!";
+                $headline = "You lose!";
                 $this->formValue = [];
             }
         } else {
-            $this->headline = "Play dice";
+            $headline = "Play dice";
         }
-        return $this->headline;
+        return $headline;
     }
 
     /**

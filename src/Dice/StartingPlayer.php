@@ -5,7 +5,8 @@
 
 namespace Joel\Dice;
 
-class StartingPlayer {
+class StartingPlayer
+{
     /**
     * @var string $message flash message for the UI.
     * @var DiceGraphic $player instance of the class DiceGraphic, subclass of Dices.
@@ -36,13 +37,14 @@ class StartingPlayer {
     /**
     * Rolls a dice for each player and determines who is the starting player (highest roll).
     * On a tie, rolls the dices again until a winner can be detrmined.
+    * $p and $c only for testing purposes to be able to manipluate the method.
     * @return void
     */
-    public function rollStart()
+    public function rollStart($play = 0, $comp = 0)
     {
         do {
-            $playerp = $this->player->rollDie();
-            $computerp = $this->computer->rollDie();
+            $playerp = $this->player->rollDie() + $play;
+            $computerp = $this->computer->rollDie() + $comp;
             $this->message = "Player rolls " . $playerp . " <i class=\"dice-sprite " . $this->player->graphic() . "\"></i><br>Computer rolls " . $computerp . " <i class=\"dice-sprite " . $this->computer->graphic() . "\"></i>";
             if ($playerp < $computerp) {
                 $this->message = $this->message . "<br>Computer starts.";
@@ -89,4 +91,19 @@ class StartingPlayer {
         return $this->formValue;
     }
 
+    /**
+    * For test purpose rolldie.
+    */
+    public function rollDiePlayer()
+    {
+        return $this->player->rollDie();
+    }
+
+    /**
+    * For test purpose rolldie.
+    */
+    public function rollDieComputer()
+    {
+        return $this->player->rollDie();
+    }
 }
