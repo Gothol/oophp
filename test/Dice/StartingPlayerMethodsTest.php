@@ -32,9 +32,9 @@ class StartingPlayerMethodsTest extends TestCase
     */
     public function testRollStartPlayerWins()
     {
-        $startingPlayer = new StartingPlayer(6, 0);
+        $startingPlayer = new StartingPlayer();
         $this->assertInstanceOf("\Joel\Dice\StartingPlayer", $startingPlayer);
-        $startingPlayer->rollStart();
+        $startingPlayer->rollStart(6, 0);
         $res = $startingPlayer->getMess();
         $this->assertIsString($res);
         $this->assertStringStartsWith("Player rolls ", $res);
@@ -60,10 +60,10 @@ class StartingPlayerMethodsTest extends TestCase
     */
     public function testRollStartComputerWins()
     {
-        $startingPlayer = new StartingPlayer(0, 10);
+        $startingPlayer = new StartingPlayer();
         $this->assertInstanceOf("\Joel\Dice\StartingPlayer", $startingPlayer);
 
-        $startingPlayer->rollStart();
+        $startingPlayer->rollStart(0, 6);
         $res = $startingPlayer->getMess();
         $this->assertIsString($res);
         $this->assertStringStartsWith("Player rolls ", $res);

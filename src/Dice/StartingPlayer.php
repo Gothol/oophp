@@ -42,9 +42,10 @@ class StartingPlayer
     */
     public function rollStart($play = 0, $comp = 0)
     {
+
         do {
-            $playerp = $this->player->rollDie() + $play;
-            $computerp = $this->computer->rollDie() + $comp;
+            $playerp = $play + $this->player->rollDie();
+            $computerp = $comp +$this->computer->rollDie();
             $this->message = "Player rolls " . $playerp . " <i class=\"dice-sprite " . $this->player->graphic() . "\"></i><br>Computer rolls " . $computerp . " <i class=\"dice-sprite " . $this->computer->graphic() . "\"></i>";
             if ($playerp < $computerp) {
                 $this->message = $this->message . "<br>Computer starts.";

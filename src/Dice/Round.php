@@ -72,7 +72,8 @@ class Round
     public function check(string $player)
     {
         $check = true;
-        foreach ($this->hand->values() as $key => $value) {
+        $values = $this->hand->values();
+        foreach ($values as $value) {
             if ($value === 1) {
                 $check = false;
             }
