@@ -3,7 +3,7 @@
 * Class to roll a hand of dices.
 */
 
-namespace Joel\Dice;
+namespace Joel\Diceold;
 
 class Dicehand
 {
@@ -15,7 +15,6 @@ class Dicehand
     private $dices;
     private $values;
     private $graphics;
-    private $sequence = [];
 
     /**
     * Construct to roll a number of dices.
@@ -43,7 +42,6 @@ class Dicehand
         foreach ($this->dices as $key => $value) {
             $this->values[$key] = $value->rollDie();
             $this->graphics[$key] = $value->graphic();
-            $this->sequence[] = $value->getLastRoll();
         }
     }
 
@@ -78,15 +76,5 @@ class Dicehand
     public function getGraphics()
     {
         return $this->graphics;
-    }
-
-    public function getSidesMax()
-    {
-        return $this->dices[0]->getSides();
-    }
-
-    public function getSequence()
-    {
-        return $this->sequence;
     }
 }

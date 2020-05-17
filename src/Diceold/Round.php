@@ -3,11 +3,10 @@
 * Class to handle a round in the game.
 */
 
-namespace Joel\Dice;
+namespace Joel\Diceold;
 
-class Round implements HistogramInterface
+class Round
 {
-    use HistogramTrait;
     /**
     * @var Dicehand $hand instance of the class Dicehand.
     * @var int $sum The total score for a player in this particular game.
@@ -16,7 +15,7 @@ class Round implements HistogramInterface
     * @var string $message, to be used as a flash-message in user interface.
     */
     private $hand;
-    protected $sum;
+    private $sum;
     private $res;
     private $formValue;
     private $message;
@@ -42,15 +41,9 @@ class Round implements HistogramInterface
     * Rolls the number of dices that a dicehand consists of.
     * @return void.
     */
-    /*public function rollHand($sequence)
+    public function rollHand()
     {
         $this->hand->roll();
-    }*/
-
-    public function rollHand100($sequence)
-    {
-        $this->hand->roll();
-        $this->sequence = array_merge($sequence, $this->hand->getSequence());
     }
 
     /**
@@ -90,18 +83,18 @@ class Round implements HistogramInterface
             if ($player === "player") {
                 $this->formValue = [
                     "1" => [
-                        "action" => "playContinue",
+                        "action" => "play_continue",
                         "submit" => "Roll the dice"
                     ],
                     "2" => [
-                        "action" => "endTurnPlayer",
+                        "action" => "end_turn_player",
                         "submit" => "End turn"
                     ]
                 ];
             } else {
                 $this->formValue = [
                     "1" => [
-                        "action" => "playComputerProc",
+                        "action" => "play_computer_proc",
                         "submit" => "Roll the dice"
                     ]
                 ];
@@ -111,7 +104,7 @@ class Round implements HistogramInterface
             if ($player === "player") {
                 $this->formValue = [
                     "1" => [
-                        "action" => "endTurnPlayer",
+                        "action" => "end_turn_player",
                         "submit" => "End turn"
                     ]
                 ];
@@ -119,7 +112,7 @@ class Round implements HistogramInterface
             } else {
                 $this->formValue = [
                     "1" => [
-                        "action" => "endTurnComputer",
+                        "action" => "end_turn_computer",
                         "submit" => "End turn"
                     ]
                 ];
@@ -198,20 +191,10 @@ class Round implements HistogramInterface
     }
 
     /**
-    * @return array $message. Flashmessage to use in the UI.
+    * @return array $message. Falshmessage to use in the UI.
     */
     public function getMess()
     {
         return $this->message;
     }
-
-    /*public function getHistogramMax()
-    {
-        return $this->hand->getSidesMax();
-    }
-
-    /*public function getSequence()
-    {
-        return $this->sequence;
-    }*/
 }

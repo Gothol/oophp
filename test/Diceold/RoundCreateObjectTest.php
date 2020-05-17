@@ -1,6 +1,6 @@
 <?php
 
-namespace Joel\Dice;
+namespace Joel\Diceold;
 
 use PHPUnit\Framework\TestCase;
 
@@ -23,15 +23,12 @@ class RoundCreateObjectTest extends TestCase
                 "action" => "end_turn_player",
                 "submit" => "End turn"
             ]], "message");
-        $this->assertInstanceOf("\Joel\Dice\Round", $round);
+        $this->assertInstanceOf("\Joel\Diceold\Round", $round);
 
-        $sequence = [];
-        $round->rollHand100($sequence);
+        $round->rollHand();
         $values = $round->values();
-        $sequence = $round->getHistogramSequence();
         $this->assertIsArray($values);
         $this->assertCount(3, $values);
-        $this->assertCount(3, $sequence);
 
         $res = $round->getTotal();
         $exp = 25;
@@ -72,15 +69,12 @@ class RoundCreateObjectTest extends TestCase
                 "action" => "end_turn_player",
                 "submit" => "End turn"
             ]]);
-        $this->assertInstanceOf("\Joel\Dice\Round", $round);
+        $this->assertInstanceOf("\Joel\Diceold\Round", $round);
 
-        $sequence = [];
-        $round->rollHand100($sequence);
+        $round->rollHand();
         $values = $round->values();
-        $sequence = $round->getHistogramSequence();
         $this->assertIsArray($values);
         $this->assertCount(3, $values);
-        $this->assertCount(3, $sequence);
 
         $res = $round->getTotal();
         $exp = 25;
@@ -113,15 +107,12 @@ class RoundCreateObjectTest extends TestCase
     public function testCreateObjectThreeArguments()
     {
         $round = new Round(3, 15, 10);
-        $this->assertInstanceOf("\Joel\Dice\Round", $round);
+        $this->assertInstanceOf("\Joel\Diceold\Round", $round);
 
-        $sequence = [];
-        $round->rollHand100($sequence);
+        $round->rollHand();
         $values = $round->values();
-        $sequence = $round->getHistogramSequence();
         $this->assertIsArray($values);
         $this->assertCount(3, $values);
-        $this->assertCount(3, $sequence);
 
         $res = $round->getTotal();
         $exp = 25;
@@ -146,15 +137,12 @@ class RoundCreateObjectTest extends TestCase
     public function testCreateObjectTwoArguments()
     {
         $round = new Round(3, 15);
-        $this->assertInstanceOf("\Joel\Dice\Round", $round);
+        $this->assertInstanceOf("\Joel\Diceold\Round", $round);
 
-        $sequence = [];
-        $round->rollHand100($sequence);
+        $round->rollHand();
         $values = $round->values();
-        $sequence = $round->getHistogramSequence();
         $this->assertIsArray($values);
         $this->assertCount(3, $values);
-        $this->assertCount(3, $sequence);
 
         $res = $round->getTotal();
         $exp = 15;
@@ -179,15 +167,12 @@ class RoundCreateObjectTest extends TestCase
     public function testCreateObjectOneArgument()
     {
         $round = new Round(3);
-        $this->assertInstanceOf("\Joel\Dice\Round", $round);
+        $this->assertInstanceOf("\Joel\Diceold\Round", $round);
 
-        $sequence = [];
-        $round->rollHand100($sequence);
+        $round->rollHand();
         $values = $round->values();
-        $sequence = $round->getHistogramSequence();
         $this->assertIsArray($values);
         $this->assertCount(3, $values);
-        $this->assertCount(3, $sequence);
 
         $res = $round->getTotal();
         $exp = 0;
@@ -212,15 +197,12 @@ class RoundCreateObjectTest extends TestCase
     public function testCreateObjectNoArgument()
     {
         $round = new Round();
-        $this->assertInstanceOf("\Joel\Dice\Round", $round);
+        $this->assertInstanceOf("\Joel\Diceold\Round", $round);
 
-        $sequence = [];
-        $round->rollHand100($sequence);
+        $round->rollHand();
         $values = $round->values();
-        $sequence = $round->getHistogramSequence();
         $this->assertIsArray($values);
         $this->assertCount(2, $values);
-        $this->assertCount(2, $sequence);
 
         $res = $round->getTotal();
         $exp = 0;

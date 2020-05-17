@@ -1,6 +1,6 @@
 <?php
 
-namespace Joel\Dice;
+namespace Joel\Diceold;
 
 use PHPUnit\Framework\TestCase;
 
@@ -15,7 +15,7 @@ class StartingPlayerMethodsTest extends TestCase
     public function testRollstartNoArgument()
     {
         $startingPlayer = new StartingPlayer();
-        $this->assertInstanceOf("\Joel\Dice\StartingPlayer", $startingPlayer);
+        $this->assertInstanceOf("\Joel\Diceold\StartingPlayer", $startingPlayer);
 
         $startingPlayer->rollStart();
         $res = $startingPlayer->getMess();
@@ -33,7 +33,7 @@ class StartingPlayerMethodsTest extends TestCase
     public function testRollStartPlayerWins()
     {
         $startingPlayer = new StartingPlayer();
-        $this->assertInstanceOf("\Joel\Dice\StartingPlayer", $startingPlayer);
+        $this->assertInstanceOf("\Joel\Diceold\StartingPlayer", $startingPlayer);
         $startingPlayer->rollStart(6, 0);
         $res = $startingPlayer->getMess();
         $this->assertIsString($res);
@@ -44,11 +44,11 @@ class StartingPlayerMethodsTest extends TestCase
         $this->assertIsArray($res);
         $exp = [
             "1" => [
-                "action" => "playContinue",
+                "action" => "play_continue",
                 "submit" => "Roll the dice"
             ],
             "2" => [
-                "action" => "endTurnPlayer",
+                "action" => "end_turn_player",
                 "submit" => "End turn"
             ]
         ];
@@ -61,7 +61,7 @@ class StartingPlayerMethodsTest extends TestCase
     public function testRollStartComputerWins()
     {
         $startingPlayer = new StartingPlayer();
-        $this->assertInstanceOf("\Joel\Dice\StartingPlayer", $startingPlayer);
+        $this->assertInstanceOf("\Joel\Diceold\StartingPlayer", $startingPlayer);
 
         $startingPlayer->rollStart(0, 6);
         $res = $startingPlayer->getMess();
@@ -73,7 +73,7 @@ class StartingPlayerMethodsTest extends TestCase
         $this->assertIsArray($res);
         $exp = [
             "1" => [
-                "action" => "playComputerProc",
+                "action" => "play_computer_proc",
                 "submit" => "Roll the dice"
             ]
         ];

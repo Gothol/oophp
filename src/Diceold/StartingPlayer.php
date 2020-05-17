@@ -3,7 +3,7 @@
 * Class to determine starting player.
 */
 
-namespace Joel\Dice;
+namespace Joel\Diceold;
 
 class StartingPlayer
 {
@@ -51,7 +51,7 @@ class StartingPlayer
                 $this->message = $this->message . "<br>Computer starts.";
                 $this->formValue = [
                     "1" => [
-                        "action" => "playComputerProc",
+                        "action" => "play_computer_proc",
                         "submit" => "Roll the dice"
                     ]
                 ];
@@ -60,11 +60,11 @@ class StartingPlayer
                 $this->message = $this->message . "<br>Player starts.";
                 $this->formValue = [
                     "1" => [
-                        "action" => "playContinue",
+                        "action" => "play_continue",
                         "submit" => "Roll the dice"
                     ],
                     "2" => [
-                        "action" => "endTurnPlayer",
+                        "action" => "end_turn_player",
                         "submit" => "End turn"
                     ]
                 ];

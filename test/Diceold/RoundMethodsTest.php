@@ -1,6 +1,6 @@
 <?php
 
-namespace Joel\Dice;
+namespace Joel\Diceold;
 
 use PHPUnit\Framework\TestCase;
 
@@ -16,10 +16,9 @@ class RoundMethodsTest extends TestCase
     public function testRollHand()
     {
         $round = new Round();
-        $this->assertInstanceOf("\Joel\Dice\Round", $round);
+        $this->assertInstanceOf("\Joel\Diceold\Round", $round);
 
-        $sequence = [];
-        $round->rollHand100($sequence);
+        $round->rollHand();
         $values = $round->values();
         $this->assertIsArray($values);
         $this->assertCount(2, $values);
@@ -36,7 +35,7 @@ class RoundMethodsTest extends TestCase
     public function testCheckPlayerValueOne()
     {
         $round = new Round(2, 15, 10);
-        $this->assertInstanceOf("\Joel\Dice\Round", $round);
+        $this->assertInstanceOf("\Joel\Diceold\Round", $round);
 
         $round->setHandValues([4, 1]);
 
@@ -49,7 +48,7 @@ class RoundMethodsTest extends TestCase
         $res = $round->getForm();
         $exp = [
             "1" => [
-                "action" => "endTurnPlayer",
+                "action" => "end_turn_player",
                 "submit" => "End turn"
             ]];
         $this->assertEquals($res, $exp);
@@ -66,7 +65,7 @@ class RoundMethodsTest extends TestCase
     public function testCheckComputerValueOne()
     {
         $round = new Round(2, 15, 10);
-        $this->assertInstanceOf("\Joel\Dice\Round", $round);
+        $this->assertInstanceOf("\Joel\Diceold\Round", $round);
 
         $round->setHandValues([4, 1]);
 
@@ -79,7 +78,7 @@ class RoundMethodsTest extends TestCase
         $res = $round->getForm();
         $exp = [
             "1" => [
-                "action" => "endTurnComputer",
+                "action" => "end_turn_computer",
                 "submit" => "End turn"
             ]
         ];
@@ -95,7 +94,7 @@ class RoundMethodsTest extends TestCase
     public function testCheckPlayerValueNotOne()
     {
         $round = new Round(2, 15, 10);
-        $this->assertInstanceOf("\Joel\Dice\Round", $round);
+        $this->assertInstanceOf("\Joel\Diceold\Round", $round);
 
         $round->setHandValues([4, 2]);
 
@@ -108,11 +107,11 @@ class RoundMethodsTest extends TestCase
         $res = $round->getForm();
         $exp = [
             "1" => [
-                "action" => "playContinue",
+                "action" => "play_continue",
                 "submit" => "Roll the dice"
             ],
             "2" => [
-                "action" => "endTurnPlayer",
+                "action" => "end_turn_player",
                 "submit" => "End turn"
             ]
         ];
@@ -129,7 +128,7 @@ class RoundMethodsTest extends TestCase
     public function testCheckComputerValueNotOne()
     {
         $round = new Round(2, 15, 10);
-        $this->assertInstanceOf("\Joel\Dice\Round", $round);
+        $this->assertInstanceOf("\Joel\Diceold\Round", $round);
 
         $round->setHandValues([4, 2]);
 
@@ -142,7 +141,7 @@ class RoundMethodsTest extends TestCase
         $res = $round->getForm();
         $exp = [
             "1" => [
-                "action" => "playComputerProc",
+                "action" => "play_computer_proc",
                 "submit" => "Roll the dice"
             ]
         ];
@@ -184,11 +183,11 @@ class RoundMethodsTest extends TestCase
     {
         $round = new Round(2, 95, 10, [
             "1" => [
-                "action" => "playContinue",
+                "action" => "play_continue",
                 "submit" => "Roll the dice"
             ],
             "2" => [
-                "action" => "endTurnPlayer",
+                "action" => "end_turn_player",
                 "submit" => "End turn"
             ]]);
 
@@ -208,11 +207,11 @@ class RoundMethodsTest extends TestCase
     {
         $round = new Round(2, 95, 10, [
             "1" => [
-                "action" => "playContinue",
+                "action" => "play_continue",
                 "submit" => "Roll the dice"
             ],
             "2" => [
-                "action" => "endTurnPlayer",
+                "action" => "end_turn_player",
                 "submit" => "End turn"
             ]]);
 
@@ -231,10 +230,9 @@ class RoundMethodsTest extends TestCase
     public function testGetGraphic()
     {
         $round = new Round();
-        $this->assertInstanceOf("\Joel\Dice\Round", $round);
+        $this->assertInstanceOf("\Joel\Diceold\Round", $round);
 
-        $sequence = [];
-        $round->rollHand100($sequence);
+        $round->rollHand();
         $values = $round->values();
         $graphics = $round->getGraphic();
         $this->assertIsArray($values);

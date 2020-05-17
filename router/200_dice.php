@@ -6,7 +6,7 @@
 /**
 * Sätter antalet tärningar i hand till 0 och renderar en vy för att välja antal tärningar
 */
-$app->router->get("dice/start", function () use ($app) {
+$app->router->get("diceold/start", function () use ($app) {
     $title = "Play first to 100";
     $app->session->set("number", 0);
     $app->session->set("sumPlayer", 0);
@@ -17,7 +17,7 @@ $app->router->get("dice/start", function () use ($app) {
     $app->session->set("graphics", ["dice-0"]);
     //$app->session->set("check", True);
     $app->session->set("headline", "Play dice");
-    $app->page->add("dice/start_play");
+    $app->page->add("diceold/start_play");
     return $app->page->render([
         "title" => $title,
     ]);
@@ -27,23 +27,23 @@ $app->router->get("dice/start", function () use ($app) {
 * Sätter startvärden och redirectar till spelvyn. Hämtar antalet tärningar i en hand och sparar i sessionen.
 * @var int $dices antalet tärningar i en hand.
 */
-$app->router->post("dice/first", function () use ($app) {
+$app->router->post("diceold/first", function () use ($app) {
     $title = "Play first to 100";
     $dices = $app->request->getPost("antal");
     $app->session->set("number", $dices);
-    $starting = new Joel\Dice\StartingPlayer();
+    $starting = new Joel\Diceold\StartingPlayer();
     $starting->rollStart();
     $app->session->set("message", $starting->getMess());
     $app->session->set("formValue", $starting->getForm());
-    $app->page->add("dice/play");
-    return $app->response->redirect("dice/play");
+    $app->page->add("diceold/play");
+    return $app->response->redirect("diceold/play");
 });
 
 /**
 * Hämtar värden från sessionen och renderar spelvyn.
 * Nollställer de värden som ska vara tillfälliga för den här renderingen.
 */
-$app->router->get("dice/play", function () use ($app) {
+$app->router->get("diceold/play", function () use ($app) {
     $title = "Play first to 100";
     $data = [
         "sumPlayer" => $app->session->get("sumPlayer"),
@@ -58,7 +58,7 @@ $app->router->get("dice/play", function () use ($app) {
     $app->session->set("message", "");
     $app->session->set("values", []);
     $app->session->set("graphics", ["dice-0"]);
-    $app->page->add("dice/play", $data);
+    $app->page->add("diceold/play", $data);
     return $app->page->render([
         "title" => $title,
     ]);
@@ -70,11 +70,11 @@ $app->router->get("dice/play", function () use ($app) {
 * Nollställer resultatet om en etta slagits.
 * Fyller sessionen med nödvändiga värden att skicka till vy-renderingen.
 */
-$app->router->post("dice/play_continue", function () use ($app) {
+$app->router->post("diceold/play_continue", function () use ($app) {
     $number = $app->session->get("number");
     $sumPlayer = $app->session->get("sumPlayer");
     $res = $app->session->get("res");
-    $hand = new Joel\Dice\Round($number, $sumPlayer, $res);
+    $hand = new Joel\Diceold\Round($number, $sumPlayer, $res);
     $hand->rollHand();
     $hand->check("player");
     $headline = $hand->checkSum("player");
@@ -85,18 +85,18 @@ $app->router->post("dice/play_continue", function () use ($app) {
     $app->session->set("headline", $headline);
     $app->session->set("message", $hand->getMess());
     $app->page->add("dice/play");
-    return $app->response->redirect("dice/play");
+    return $app->response->redirect("diceold/play");
 });
 
 /**
 * Avslutar en runda för spelaren och adderar resultatet av senaste rundan till totala poängen
 * Fyller sessionen med nödvändiga värden för renderings-vyn.
 */
-$app->router->post("dice/end_turn_player", function () use ($app) {
+$app->router->post("diceold/end_turn_player", function () use ($app) {
     $number = $app->session->get("number");
     $sumPlayer = $app->session->get("sumPlayer");
     $res = $app->session->get("res");
-    $hand = new Joel\Dice\Round($number, $sumPlayer, $res);
+    $hand = new Joel\Diceold\Round($number, $sumPlayer, $res);
     $formValue = [
         "1" => [
             "action" => "play_computer_proc",
@@ -108,7 +108,7 @@ $app->router->post("dice/end_turn_player", function () use ($app) {
     $app->session->set("res", 0);
     $app->session->set("formValue", $formValue);
     $app->page->add("dice/play");
-    return $app->response->redirect("dice/play");
+    return $app->response->redirect("diceold/play");
 });
 
 /**
@@ -118,11 +118,11 @@ $app->router->post("dice/end_turn_player", function () use ($app) {
 * Kontrollerar om datorn skall avsluta rundan eller fortsätta.
 * Fyller sessionen med nödvändiga värden att skicka till vy-renderingen.
 */
-$app->router->post("dice/play_computer_proc", function () use ($app) {
+$app->router->post("diceold/play_computer_proc", function () use ($app) {
     $number = $app->session->get("number");
     $sumComputer = $app->session->get("sumComputer");
     $res = $app->session->get("res");
-    $hand = new Joel\Dice\RoundComputer($number, $sumComputer, $res);
+    $hand = new Joel\Diceold\RoundComputer($number, $sumComputer, $res);
     $hand->rollHand();
     $hand->check("computer");
     $hand->checkRes();
@@ -133,19 +133,19 @@ $app->router->post("dice/play_computer_proc", function () use ($app) {
     $app->session->set("graphics", $hand->getGraphic());
     $app->session->set("headline", $headline);
     $app->session->set("message", $hand->getMess());
-    $app->page->add("dice/play");
-    return $app->response->redirect("dice/play");
+    $app->page->add("diceold/play");
+    return $app->response->redirect("diceold/play");
 });
 
 /**
 * Avslutar en runda för datorn och adderar resultatet av senaste rundan till totala poängen
 * Fyller sessionen med nödvändiga värden för renderings-vyn.
 */
-$app->router->post("dice/end_turn_computer", function () use ($app) {
+$app->router->post("diceold/end_turn_computer", function () use ($app) {
     $number = $app->session->get("number");
     $sumComputer = $app->session->get("sumComputer");
     $res = $app->session->get("res");
-    $hand = new Joel\Dice\RoundComputer($number, $sumComputer, $res);
+    $hand = new Joel\Diceold\RoundComputer($number, $sumComputer, $res);
     $formValue = [
         "1" => [
             "action" => "play_continue",
@@ -160,6 +160,6 @@ $app->router->post("dice/end_turn_computer", function () use ($app) {
     $app->session->set("res", 0);
     $app->session->set("message", $hand->getMess());
     $app->session->set("formValue", $formValue);
-    $app->page->add("dice/play");
-    return $app->response->redirect("dice/play");
+    $app->page->add("diceold/play");
+    return $app->response->redirect("diceold/play");
 });

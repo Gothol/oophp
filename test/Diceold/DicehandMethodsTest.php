@@ -1,6 +1,6 @@
 <?php
 
-namespace Joel\Dice;
+namespace Joel\Diceold;
 
 use PHPUnit\Framework\TestCase;
 
@@ -15,7 +15,7 @@ class DicehandMethodsTest extends TestCase
     public function testSumt()
     {
         $dicehand = new Dicehand();
-        $this->assertInstanceOf("\Joel\Dice\Dicehand", $dicehand);
+        $this->assertInstanceOf("\Joel\Diceold\Dicehand", $dicehand);
 
         $res = 0;
         $dicehand->roll();
@@ -36,7 +36,7 @@ class DicehandMethodsTest extends TestCase
     public function testGetGraphicsArgument()
     {
         $dicehand = new Dicehand();
-        $this->assertInstanceOf("\Joel\Dice\Dicehand", $dicehand);
+        $this->assertInstanceOf("\Joel\Diceold\Dicehand", $dicehand);
 
         $dicehand->roll();
         $values = $dicehand->values();
@@ -46,15 +46,5 @@ class DicehandMethodsTest extends TestCase
             $test2 = $graphics[$i];
             $this->assertEquals($test1, $test2);
         }
-    }
-
-    public function testGetSidesMax()
-    {
-        $dicehand = new Dicehand();
-        $this->assertInstanceOf("\Joel\Dice\Dicehand", $dicehand);
-
-        $res = $dicehand->getSidesMax();
-        $exp = 6;
-        $this->assertEquals($exp, $res);
     }
 }

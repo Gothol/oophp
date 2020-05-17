@@ -1,5 +1,5 @@
 <article class="article">
-    <h1><?= $data["headline"] ?> 100</h1>
+    <h1><?= $data["headline"] ?></h1>
 
     <p><?= $data["message"] ?></p>
 
@@ -27,20 +27,15 @@
     <p>
         Sum of all rolls this round: <?= $data["res"] ?>
     </p>
-    <p>
-        Histogram:<br>
-        <?= $data["histogram"] ?>
-    </p>
+
     <fieldset>
         <?php foreach ($data["formValue"] as $value) { ?>
             <form method="post" action="<?= $value["action"] ?>">
                 <input name="roll" type="submit" value="<?= $value["submit"] ?>">
             </form>
         <?php } ?>
-        <p>
-            <form method="get" action="start">
-                <input name="turnover" type="submit" value="Start a new game">
-            </form>
-        </p>
+        <form method="get" action="start">
+            <input name="turnover" type="submit" value="Start a new game">
+        </form>
     </fieldset>
 </article>

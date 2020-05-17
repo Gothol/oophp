@@ -1,6 +1,6 @@
 <?php
 
-namespace Joel\Dice;
+namespace Joel\Diceold;
 
 use PHPUnit\Framework\TestCase;
 
@@ -15,7 +15,7 @@ class DiceLastRollTest extends TestCase
     public function testLastRoll()
     {
         $dice = new Dice();
-        $this->assertInstanceOf("\Joel\Dice\Dice", $dice);
+        $this->assertInstanceOf("\Joel\Diceold\Dice", $dice);
 
         $res = $dice->rollDie();
         $exp = $dice->getLastRoll();

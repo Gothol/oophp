@@ -3,7 +3,7 @@
 * Class to roll a die.
 */
 
-namespace Joel\Dice;
+namespace Joel\Diceold;
 
 class Dice
 {
@@ -36,10 +36,5 @@ class Dice
     public function getLastRoll()
     {
         return $this->lastroll;
-    }
-
-    public function getSides()
-    {
-        return $this->sides;
     }
 }
