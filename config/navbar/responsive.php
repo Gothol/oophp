@@ -94,5 +94,10 @@ return [
             "url" => "tarning100/tarning100_start",
             "title" => "Game Dices frist to 100",
         ],
+        [
+            "text" => "Movie",
+            "url" => "movie",
+            "title" => "Movie database",
+        ],
     ],
 ];

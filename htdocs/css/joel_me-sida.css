@@ -6230,3 +6230,8 @@ body {
 h3 {
   clear: both;
 }
+
+img.thumb {
+    max-width: 100px;
+    max-height: 100px;
+}
