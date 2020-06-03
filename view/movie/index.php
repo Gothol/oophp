@@ -1,5 +1,7 @@
-<article class="article">
-<h1> Movie database </h1>
+<?php
+namespace Anax\View;
+
+?>
 <table>
     <tr class="first">
         <th>Rad</th>
@@ -13,10 +15,9 @@
     <tr>
         <td><?= $id ?></td>
         <td><?= $row->id ?></td>
-        <td><img class="thumb" src="<?= $row->image ?>"></td>
+        <td><img class="thumb" src="<?= url($row->image) ?>"></td>
         <td><?= $row->title ?></td>
         <td><?= $row->year ?></td>
     </tr>
 <?php endforeach; ?>
 </table>
-</article>

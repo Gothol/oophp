@@ -115,7 +115,7 @@ class Dice100Controller implements AppInjectableInterface
         $res = $app->session->get("res");
         $sequence = $app->session->get("sequence");
         $hand = new Round($number, $sumPlayer, $res);
-        $histogram = new histogram();
+        $histogram = new Histogram();
         $hand->rollHand100($sequence);
         $hand->check("player");
         $headline = $hand->checkSum("player");
@@ -172,7 +172,7 @@ class Dice100Controller implements AppInjectableInterface
         $res = $app->session->get("res");
         $sequence = $app->session->get("sequence");
         $hand = new RoundComputer($number, $sumComputer, $res);
-        $histogram = new histogram();
+        $histogram = new Histogram();
         $hand->rollHand100($sequence);
         $hand->check("computer");
         $hand->checkIntRes($app->session->get("sumPlayer"));
