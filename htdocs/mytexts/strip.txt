@@ -1,0 +1,7 @@
+<h3>Strip-tags</h3>
+<br>
+<br>
+<p>Det här är en <i>text för att</i> visa vad som händer när man använder <b>strip_tags</b></p>
+<article>
+Alla taggar tas bort
+</article>

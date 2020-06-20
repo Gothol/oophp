@@ -1,0 +1,6 @@
+<h3>Htmlentities</h3>
+<br>
+<p>Det här är en text för att visa vad som händer när man använder htmlentities</p>
+<article>
+Alla taggar skrivs ut istället för att tolkas av browsern
+</article>

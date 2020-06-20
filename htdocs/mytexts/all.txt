@@ -1,0 +1,21 @@
+This text is used to test all the filters.
+
+<h3>BBCode</h3>
+[b]Bold text[/b] [i]Italic text[/i] [url=http://dbwebb.se]a link to dbwebb[/url]
+
+And then an image.
+[img]https://dbwebb.se/image/tema/trad/blad.jpg[/img]
+
+<h3>A couple of links</h3>
+<p>This link should for example be made clickable: http://dbwebb.se and so should this link http://dbwebb.se/kod-exempel/function_to_make_links_clickable/ and so should this: http://dbwebb.se/kod-exempel/function_to_make_links_clickable#id.</p>
+
+Some markdown
+=======================
+
+Here comes a paragraph.
+
+* Unordered list
+* Unordered list again
+
+And a header level 2
+----------------------
