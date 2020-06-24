@@ -19,11 +19,11 @@ class MyTextFilter
     * @var array $filter supported filters and their method names.
     */
     private $filters = [
-        "strip" => "strip",
         "esc" => "esc",
+        "strip" => "strip",
+        "markdown" => "markdown",
         "bbcode" => "bbcode2html",
         "link" => "makeClickable",
-        "markdown" => "markdown",
         "nl2br" => "nl2br"
     ];
 

@@ -99,5 +99,29 @@ return [
             "url" => "movie",
             "title" => "Movie database",
         ],
+        [
+            "text" => "Textfilter Test",
+            "url" => "mytextfilter",
+            "title" => "Textfilter Test",
+        ],
+        [
+            "text" => "Blog",
+            "url" => "blog",
+            "title" => "Blog",
+            "submenu" => [
+                "items" => [
+                    [
+                        "text" => "Innehåll pages & blog",
+                        "url" => "blog/blogcontent",
+                        "title" => "Innehåll pages & blog",
+                    ],
+                    [
+                        "text" => "Admin",
+                        "url" => "blog/blogadmin",
+                        "title" => "Admin",
+                    ],
+                ],
+            ],
+        ],
     ],
 ];

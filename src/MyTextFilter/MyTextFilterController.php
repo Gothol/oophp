@@ -66,7 +66,7 @@ class MyTextFilterController implements AppInjectableInterface
     {
         $page = $this->app->page;
         $title = "Showing of Markdown";
-        $url = \Anax\View\url("mytexts/markdown.md");
+        $url = \Anax\View\url("mytexts/markdown.txt");
         $text = file_get_contents($url);
         $filter = new MyTextFilter;
         $html = $filter->parse($text, "markdown");
