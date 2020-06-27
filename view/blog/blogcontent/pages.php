@@ -17,19 +17,19 @@ namespace Anax\View;
         <th>Deleted</th>
     </tr>
 <?php $id = -1;
-    foreach ($resultset as $row) :
-        $id++;
-        if ($row->path === null) :
-            $row->path = $row->slug;
-        endif; ?>
-        <tr>
-            <td><?= $row->id ?></td>
-            <td><a href="<?= url("blog/blogcontent/page?path={$row->path}") ?>"><?= $row->title ?></a></td>
-            <td><?= $row->type ?></td>
-            <td><?= $row->status ?></td>
-            <td><?= $row->published ?></td>
-            <td><?= $row->deleted ?></td>
-        </tr>
-<?php endforeach; ?>
+foreach ($resultset as $row) :
+    $id++;
+    if ($row->path === null) :
+        $row->path = $row->slug;
+    endif; ?>
+    <tr>
+        <td><?= $row->id ?></td>
+        <td><a href="<?= url("blog/blogcontent/page?path={$row->path}") ?>"><?= $row->title ?></a></td>
+        <td><?= $row->type ?></td>
+        <td><?= $row->status ?></td>
+        <td><?= $row->published ?></td>
+        <td><?= $row->deleted ?></td>
+    </tr>
+    <?php endforeach; ?>
 </table>
 </article>
