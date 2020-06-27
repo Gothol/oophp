@@ -1,6 +1,6 @@
 <?php
 /**
-* Exceprion-class for GuessException.
+* Exception-class for BlogException.
 */
 namespace Joel\Blog;
 

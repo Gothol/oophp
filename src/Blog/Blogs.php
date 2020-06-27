@@ -2,9 +2,18 @@
 
 namespace Joel\Blog;
 
+/**
+* Class for infrormation handling for views of blogposts.
+*/
 class Blogs
 {
 
+    /**
+    * Gets all contents from the database and returns it as a resultset.
+    * @param PDO-object $db the database to use.
+    *
+    * @return array $resultset an array with objects.
+    */
     public function showAll($db)
     {
         $sql = "SELECT * FROM blog;";
@@ -13,6 +22,15 @@ class Blogs
         return $resultset;
     }
 
+    /**
+    * Gets all content of a requested type from the database and returns it as a resultset.
+    * returns published date in two diffrent variants.
+    *
+    * @param PDO-object $db the database to use.
+    * @param string $param the type to show content of.
+    *
+    * @return array $resultset an array with objects.
+    */
     public function showTypes($db, $param)
     {
         $sql = <<<EOD
@@ -33,6 +51,17 @@ EOD;
         return $resultset;
     }
 
+    /**
+    * Gets all content of a post or page from the database and returns it as a resultset.
+    * returns published date in two diffrent variants.
+    *
+    * @param PDO-object $db the database to use.
+    * @param string $type the type to show content of.
+    * @param string $param the path or slug of the post/page in question.
+    *
+    * @throws exception if the content does not exists.
+    * @return array $resultset an array with one object.
+    */
     public function showBlog($db, $param, $type)
     {
         $sql = <<<EOD

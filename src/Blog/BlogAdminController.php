@@ -6,10 +6,22 @@ use Anax\Commons\AppInjectableInterface;
 
 use Anax\Commons\AppInjectableTrait;
 
+/**
+ * A controller for administration of basic cms-system.
+ * The controller is injected with $app
+ * The controller is mounted on a particular route and can then handle all
+ * requests for that mount point.
+ *
+ * @SuppressWarnings(PHPMD.TooManyPublicMethods)
+ */
+
 class BlogAdminController implements AppInjectableInterface
 {
     use AppInjectableTrait;
 
+    /**
+    * Renders the indexpage
+    */
     public function indexAction()
     {
         $page = $this->app->page;
@@ -20,6 +32,9 @@ class BlogAdminController implements AppInjectableInterface
         ]);
     }
 
+    /**
+    * requests all content from the database and render a page with the content.
+    */
     public function adminAction()
     {
         $page = $this->app->page;
@@ -36,6 +51,13 @@ class BlogAdminController implements AppInjectableInterface
         ]);
     }
 
+    /**
+    * Controlls that a valid id is provided.
+    * Redirects to a 404-page if the id is invalid.
+    * Gets the information associated with the id from teh database.
+    * Renders a page with the requested information.
+    * The page alse renders a flash-message if provided.
+    */
     public function editActionGet()
     {
         $page = $this->app->page;
@@ -63,6 +85,11 @@ class BlogAdminController implements AppInjectableInterface
         ]);
     }
 
+    /**
+    * Handles input form a post-form.
+    * Calls on method to decide what to do with the provided information.'
+    * Puts information in session and redirects to appropriate page.
+    */
     public function editActionPost()
     {
         $page = $this->app->page;
@@ -93,6 +120,12 @@ class BlogAdminController implements AppInjectableInterface
         return $app->response->redirect("blog/blogadmin/{$pathPage}");
     }
 
+    /**
+    * Handles update that got wrong because nonunique slug or path was entered.
+    * Use information provided by postform to render a page with the information
+    * provided by the user (not informatio from db). Renders a flashmessage with
+    * information of what field that needs change.
+    */
     public function editProcAction()
     {
         $page = $this->app->page;
@@ -110,6 +143,11 @@ class BlogAdminController implements AppInjectableInterface
         ]);
     }
 
+    /**
+    * Handles delete-requests. Gets the the title of the post/page that will be deleted.
+    * render a page with the title taht requires a new action to actually make the delete.
+    * Redirects to a 404-page if invalid id is provided.
+    */
     public function deleteActionGet()
     {
         $page = $this->app->page;
@@ -134,6 +172,11 @@ class BlogAdminController implements AppInjectableInterface
         ]);
     }
 
+    /**
+    * Hanlde delete-request and do the actaull delete-action.
+    * Redirects to 404-page if invalid ID is provided.
+    * Redirects to starting page after the delete.
+    */
     public function deleteActionPost()
     {
         $page = $this->app->page;
@@ -151,6 +194,10 @@ class BlogAdminController implements AppInjectableInterface
         return $app->response->redirect("blog/blogadmin/admin");
     }
 
+    /**
+    * Handles a create request.
+    * Renders a page to make input for the actuall craete.
+    */
     public function createActionGet()
     {
         $page = $this->app->page;
@@ -161,6 +208,11 @@ class BlogAdminController implements AppInjectableInterface
         ]);
     }
 
+    /**
+    * Handles the actuall creation of a new post /plog.
+    * Takes input from post-form. Creates a new databaseentry with that input.
+    * Redirects to editpage for the new entry for final input to the new entry.
+    */
     public function createActionPost()
     {
         $page = $this->app->page;
@@ -173,6 +225,9 @@ class BlogAdminController implements AppInjectableInterface
         return $app->response->redirect("blog/blogadmin/edit?id={$id}");
     }
 
+    /**
+    * Renders an error page with a flashmessage.
+    */
     public function errAction()
     {
         $app = $this->app;

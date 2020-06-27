@@ -6,10 +6,22 @@ use Anax\Commons\AppInjectableInterface;
 
 use Anax\Commons\AppInjectableTrait;
 
+/**
+ * A controller for rendering views of basic cms-system.
+ * The controller is injected with $app
+ * The controller is mounted on a particular route and can then handle all
+ * requests for that mount point.
+ *
+ * @SuppressWarnings(PHPMD.TooManyPublicMethods)
+ */
+
 class BlogContentController implements AppInjectableInterface
 {
     use AppInjectableTrait;
 
+    /**
+    * Renders the indexpage
+    */
     public function indexAction()
     {
         $page = $this->app->page;
@@ -20,6 +32,9 @@ class BlogContentController implements AppInjectableInterface
         ]);
     }
 
+    /**
+    * requests all content from the database and render a page with the content.
+    */
     public function showAllAction()
     {
         $page = $this->app->page;
@@ -36,6 +51,9 @@ class BlogContentController implements AppInjectableInterface
         ]);
     }
 
+    /**
+    * requests all content that is pages from the database and render a page with the content.
+    */
     public function pagesAction()
     {
         $page = $this->app->page;
@@ -52,6 +70,10 @@ class BlogContentController implements AppInjectableInterface
         ]);
     }
 
+    /**
+    * Request all content for a particular page an render a page with taht information.
+    * Renders an error page if the page does not exists.
+    */
     public function pageActionGet()
     {
         $page = $this->app->page;
@@ -80,6 +102,9 @@ class BlogContentController implements AppInjectableInterface
         ]);
     }
 
+    /**
+    * requests all content that is posts from the database and render a page with the content.
+    */
     public function postsAction()
     {
         $page = $this->app->page;
@@ -96,6 +121,10 @@ class BlogContentController implements AppInjectableInterface
         ]);
     }
 
+    /**
+    * Request all content for a particular post an render a page with taht information.
+    * Renders an error page if the post does not exists.
+    */
     public function blogpostActionGet()
     {
         $page = $this->app->page;
